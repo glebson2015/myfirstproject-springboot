@@ -31,7 +31,7 @@ public class ProductResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
-		Product cat = categoryRepository.findById(id);//Reposnável por acessar os dados seja no BD ou em memória
+		Product cat = categoryRepository.findById(id).get();//Reposnável por acessar os dados seja no BD ou em memória
 		return ResponseEntity.ok().body(cat);
 	}
 }
